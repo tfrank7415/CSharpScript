@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpScript", "CSharpScript\CSharpScript.csproj", "{0E55D10A-C7EB-4075-9D7A-051A34CDE39F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpScript", "CSharpScript\CSharpScript.csproj", "{0E55D10A-C7EB-4075-9D7A-051A34CDE39F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpScript.Example", "Example\CSharpScript.Example\CSharpScript.Example.csproj", "{59D80E03-D434-4209-8DEC-365022669EA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpScript.Example", "Example\CSharpScript.Example\CSharpScript.Example.csproj", "{59D80E03-D434-4209-8DEC-365022669EA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{04FE776D-9A37-475C-915C-D9A8CC25AFDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59D80E03-D434-4209-8DEC-365022669EA4} = {04FE776D-9A37-475C-915C-D9A8CC25AFDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {51733A4C-A141-44F1-BD90-A76371175466}

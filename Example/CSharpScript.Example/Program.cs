@@ -1,4 +1,5 @@
 using CSharpScript.Example;
+using CSharpScript;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -7,5 +8,10 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+builder.Services.AddCSharpScript(options => 
+{
+    options.ScriptScopesNames = new List<string>() { "" };
+});
 
 await builder.Build().RunAsync();

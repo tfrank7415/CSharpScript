@@ -1,9 +1,59 @@
 ﻿@page "/"
+@inject ICSharpScriptFactory _scriptFactory;
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+@*<h1>Hello, world!</h1>*@
 
-Welcome to your new app.
+<p id="hideMe" class="text-left" name="message">@Message</p>
+<button class="btn btn-primary" @onclick="hideMeByIdHandler">Hide By Id</button>
+<button class="btn btn-primary" @onclick="showMeByIdHandler">Show By Id</button>
+<button class="btn btn-primary" @onclick="hideMeByClassHandler">Hide By Class</button>
+<button class="btn btn-primary" @onclick="showMeByClassHandler">Show By Class</button>
+<button class="btn btn-primary" @onclick="hideMeByNameHandler">Hide By Name</button>
+<button class="btn btn-primary" @onclick="showMeByNameHandler">Show By Name</button>
+<button class="btn btn-primary" @onclick="hideMeByTagNameHandler">Hide By Tag</button>
+<button class="btn btn-primary" @onclick="showMeByTagNameHandler">Show By Tag</button>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    public string? Message { get; set; }
+    ScriptManager? cScript { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        cScript = await _scriptFactory.GetScriptManager("");
+        Message = "Yeahhh buddy!";
+    }
+
+    public async Task showMeByIdHandler()
+    {
+        await cScript.Show("#hideMe");
+    }
+    public async Task hideMeByIdHandler()
+    {
+        await cScript.Hide("#hideMe");
+    }
+    public async Task showMeByClassHandler()
+    {
+        await cScript.Show(".text-left");
+    }
+    public async Task hideMeByClassHandler()
+    {
+        await cScript.Hide(".text-left");
+    }
+    public async Task showMeByNameHandler()
+    {
+        await cScript.Show("message");
+    }
+    public async Task hideMeByNameHandler()
+    {
+        await cScript.Hide("message");
+    }
+    public async Task showMeByTagNameHandler()
+    {
+        await cScript.Show("p");
+    }
+    public async Task hideMeByTagNameHandler()
+    {
+        await cScript.Hide("p");
+    }
+}
